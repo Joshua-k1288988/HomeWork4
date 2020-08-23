@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_GET["signout"])){
 setcookie("uid", "Guest", time() - 60 * 60 * 24 * 7);
 header("location: index.php");
@@ -8,7 +9,8 @@ exit();
 if (isset($_POST["btnOK"])){
   $userName = $_POST["txtUserName"];
   if($userName != ""){
-    setcookie("uid", $userName);
+    $_SESSION["uid"] = $userName;
+    //  setcookie("uid", $userName);
     header("location: index.php");
     exit();
   } 
