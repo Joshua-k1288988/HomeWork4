@@ -1,8 +1,10 @@
 <?php 
-  if(!isset($_COOKIE["uid"])){
+session_start();
+  if(!isset($_SESSION["uid"])){
     header("location: login.php");
-
+    exit();
   }
+$userName = $_SESSION["uid"];
 ?> 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,7 +20,7 @@
     <td align="center" bgcolor="#CCCCCC"><font color="#FFFFFF">會員系統 － 會員專用</font></td>
   </tr>
   <tr>
-    <td align="center" valign="baseline">This page for member only.</td>
+    <td align="center" valign="baseline">現在是 <?= $userName ?> 在登入.</td>
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC"><a href="index.php">回首頁</a></td>
