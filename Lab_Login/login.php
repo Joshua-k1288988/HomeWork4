@@ -14,7 +14,7 @@ if (isset($_POST["btnOK"])){
     //  setcookie("uid", $userName);
     header("location: index.php");
     exit();
-  } 
+  }
 }
 if(isset($_POST["btnHome"])){
     header("location: index.php");
@@ -49,6 +49,13 @@ if(isset($_POST["btnHome"])){
       <input type="submit" name="btnHome" id="btnHome" value="回首頁" />
       </td>
     </tr>
+    <?php if(isset($_POST["btnOK"]) && $_POST["txtUserName"] == "" ) { ?>
+    <tr>
+      <td  colspan="2" align="center" bgcolor="#CCCCCC">
+        <font color="red">請輸入帳號!!
+      </td>
+    </tr>
+    <?php } ?>
   </table>
 </form>
 </body>
