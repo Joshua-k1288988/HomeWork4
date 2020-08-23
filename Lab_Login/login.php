@@ -1,9 +1,10 @@
 <?php
 session_start();
 if(isset($_GET["signout"])){
-setcookie("uid", "Guest", time() - 60 * 60 * 24 * 7);
-header("location: index.php");
-exit();
+  // setcookie("uid", "Guest", time() - 60 * 60 * 24 * 7);
+  unset($_SESSION["uid"]);
+  header("location: index.php");
+  exit();
 }
 
 if (isset($_POST["btnOK"])){
@@ -16,7 +17,8 @@ if (isset($_POST["btnOK"])){
   } 
 }
 if(isset($_POST["btnHome"])){
-  header("location: index.php");
+    header("location: index.php");
+    exit();
   }
 ?>
 
